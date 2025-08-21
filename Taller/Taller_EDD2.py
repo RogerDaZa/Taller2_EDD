@@ -10,11 +10,11 @@ class Cliente:
         return f"{self.cedula},{self.nombre},{self.saldo}"
 
 # Archivo donde se guardan los clientes
-ARCHIVO = "banco.txt"
+ban = "banco.txt"
 
 # Asegurarse de que el archivo existe
-if not os.path.exists(ARCHIVO):
-    with open(ARCHIVO, "w") as f:
+if not os.path.exists(ban):
+    with open(ban, "w") as f:
         pass  # Crear archivo vacío
 
 def ingresar_cliente():
@@ -31,7 +31,7 @@ def buscar_cliente():
     nombre_buscado = input("Digite el nombre del cliente a buscar: ")
     encontrado = False
 
-    with open(ARCHIVO, "r") as f:
+    with open(ban, "r") as f:
         for linea in f:
             datos = linea.strip().split(",")
             if len(datos) == 3:
@@ -49,7 +49,7 @@ def clientes_mayores_50():
     print("Clientes con saldo mayor a 50:")
     alguno = False
 
-    with open(ARCHIVO, "r") as f:
+    with open(ban, "r") as f:
         for linea in f:
             datos = linea.strip().split(",")
             if len(datos) == 3:
@@ -65,7 +65,7 @@ def clientes_mayores_50():
 def ordenar_por_saldo():
     lista_clientes = []
 
-    with open(ARCHIVO, "r") as f:
+    with open(ban, "r") as f:
         for linea in f:
             datos = linea.strip().split(",")
             if len(datos) == 3:
